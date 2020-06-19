@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		#body{
+			background-color: grey;
+		}
+		#watch{
+			background: #1d1e22;
+			width: 30%;
+			text-align: center;
+  			color: #f1ff00;
+  			opacity: 2;
+  			line-height: 1.75;
+  			text-shadow: 0 0 20px rgba(231, 76, 60, 0);
+  			font-family: 'Orbitron', sans-serif;
+    		font-size: 56px;
+   			display: inline-block;
+  			padding: 25px 40px;
+  			border-radius: 10px;
+  			margin-left: 35%;
+  			margin-top: 15%;		
+		}
+	</style>
+
+	<script type="text/javascript">
+		function showTime(){
+			let date = new Date();
+			let hour = date.getHours();
+			let min=date.getMinutes();
+			let sec=date.getSeconds();
+			
+			let ampm = "AM";
+    
+    		if(hour == 0){
+        		hour = 12;
+    		}
+    
+    		if(hour > 12) {
+       			hour = hour - 12;
+        		ampm = "PM";
+    		}
+
+			hour = (hour< 10)  ? "0" + hour : hour;
+    		min  = (min < 10)  ? "0" + min  : min;
+    		sec  = (sec < 10)  ? "0" + sec  : sec;
+   			/*if (hour<10) {
+   				hour = '0'+hour;
+   			}
+
+   			if (min<10) {
+   				min = '0'+min;
+   			}
+
+   			if (sec<10) {
+   				sec = '0'+sec;
+   			}*/
+    
+   			show=hour+ ':'+min+':'+sec+' '+ampm;
+    document.getElementById("watch").innerText = show;
+    document.getElementById("watch").textContent = show;
+
+			setTimeout(showTime,1000);
+		
+		 }
+		 
+	</script>
+
+</head>
+
+<body onload="showTime()">
+	<h1 id="watch"></h1>
+</body>
+
+</html>
